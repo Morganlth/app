@@ -34,13 +34,13 @@ bind:this={tierlist}
     class="ranks o-hid s-a-w b-lgh"
     >
         {#each TIERLIST_DATA?.tiers ?? [] as tier}
-        {@const {name} = tier}
+        {@const {name, color} = tier}
             <li
             class="tier b-box"
             >
                 <p
                 class="name d-f-c s-a-h b-box"
-                style:--tier-color={name.color}
+                style:--tier-color={color}
                 >
                     {name}
                 </p>
@@ -234,7 +234,7 @@ lang="scss"
 
             .name
             {
-                @include font.h-(5, $color: $drk);
+                @include font.txt($color: $drk, $regular: false, $size: 2);
 
                 background-color: var(--tier-color, $lgh);
 
