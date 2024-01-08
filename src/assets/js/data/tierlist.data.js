@@ -45,7 +45,7 @@
             },
             {
                 name : 'VOITURE SANS PERMIS',
-                color: '#a4161a'
+                color: '#660708'
             }
         ]
         ,
