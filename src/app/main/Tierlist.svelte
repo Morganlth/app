@@ -239,6 +239,8 @@ lang="scss"
                 background-color: var(--tier-color, $lgh);
 
                 border-right: $border;
+
+                text-align: center;
             }
         }
     }
