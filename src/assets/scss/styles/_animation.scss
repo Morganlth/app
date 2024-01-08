@@ -1,0 +1,120 @@
+/*----------------------------------------------- #||--animation--|| */
+
+
+/* #\-USES-\ */
+
+    /* --SASS */
+
+    /* --GLOBAL */
+    @use '../global/colors' as *;
+
+    /* --APP */
+
+    /* --DEPENDENCIES */
+    @use './utils';
+
+    /* --MEDIA */
+
+
+/* #\-EXPORTS-\ */
+
+    /* --THIS */
+
+
+/* #\-VARIABLES-\ */
+
+    /* --* */
+
+
+/* #\-MIXIN-\ */
+
+    /* --* */
+
+
+/* #\-PLACEHOLDER-\ */
+
+    /* --* */
+    %a-scaled
+    {
+        transform: translateY(50%) scaleY(0);
+
+        animation: a-scaled .4s .4s ease-out forwards;
+
+        @keyframes a-scaled { to { transform: translateY(0) scaleY(1); } }
+    }
+
+    %a-text
+    {
+        &:hover::after { clip-path: polygon(0 110%, 100% 110%, 100% 0, 0 0); }
+
+        &::after
+        {
+            @include utils.placement(absolute, 0, 0, 0, 0, $pe: attr(data-content));
+
+            @extend %any-size;
+
+            display: flex;
+    
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+
+            color: $primary;
+            font:  inherit;
+
+            transition: clip-path .4s ease-out;
+        }
+    }
+
+    %a-grid
+    {
+        &::before, &::after
+        {
+            border-color: var(--pe-border-color, $intermediate) !important;
+    
+            transition: border-color .4s;
+    
+            animation: a-pe .6s ease-out forwards;
+        }
+
+        &::before
+        {
+            --pe-i-translate: translateX(-50%);
+            --pe-translate  : translate(-50%, -100%);
+        
+            @include utils.placement(absolute, $top: 100%, $left: 50%, $pe: true);
+
+            height: 100%;
+
+            border-inline: solid 1px;
+        }
+
+        &::after
+        {
+            --pe-i-translate: translateY(-50%);
+            --pe-translate  : translate(-100%, -50%);
+
+            @include utils.placement(absolute, $top: 50%, $left: 100%, $pe: true);
+
+            width: 100%;
+
+            border-block: solid 1px;
+        }
+
+        @keyframes a-pe
+        {
+            from
+            {
+                transform: var(--pe-i-translate);
+
+                opacity: 0;
+            }
+            to
+            {
+                transform: var(--pe-translate);
+
+                opacity: 1;
+            }
+        }
+    }
+
+
+/* #\-THIS-\ */

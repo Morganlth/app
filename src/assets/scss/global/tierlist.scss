@@ -1,0 +1,67 @@
+/*----------------------------------------------- #||--tierlist--|| */
+
+
+/* #\-USES-\ */
+
+    /* --SASS */
+
+    /* --GLOBAL */
+    @use './breakpoints' as *;
+
+    /* --APP */
+
+    /* --DEPENDENCIES */
+    @use '../styles/display';
+
+    /* --MEDIA */
+    @use '../styles/media';
+
+
+/* #\-EXPORTS-\ */
+
+    /* --THIS */
+
+
+/* #\-VARIABLES-\ */
+
+    /* --* */
+    $item-size: 5vw;
+
+
+/* #\-MIXIN-\ */
+
+    /* --* */
+
+
+/* #\-PLACEHOLDER-\ */
+
+    /* --* */
+
+
+/* #\-THIS-\ */
+
+.tierlist
+{
+    width: 100vw - $item-size;
+
+    .ranks, .data
+    {
+        .item { height: $item-size; }
+
+        .tier .name, .item { width: $item-size; }
+    }
+
+    .tier, .container, .data { min-height: $item-size; }
+
+    .ranks .tier
+    {
+        @include display.grid(($item-size 1fr), 1fr);
+    
+        .name { width: $item-size; }
+    }
+
+    @include media.min($ms4)
+    {
+        width: $item-size * 14;
+    }
+}

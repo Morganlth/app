@@ -1,0 +1,114 @@
+/*----------------------------------------------- #||--app--|| */
+
+
+/* #\-USES-\ */
+
+    /* --SASS */
+
+    /* --GLOBAL */
+    @use './global/colors'      as *;
+    @use './global/breakpoints' as *;
+
+    /* --APP */
+
+    /* --DEPENDENCIES */
+    @use './styles/utils';
+
+    /* --MEDIA */
+    @use './styles/media';
+
+
+/* #\-EXPORTS-\ */
+
+    /* --THIS */
+
+
+/* #\-VARIABLES-\ */
+
+    /* --* */
+    $g1: .6rem;
+    $g2: 1.2rem;
+
+    $main-content-height: 62vh;
+    $main-white-space   : calc((100vh - $main-content-height) * .5 - $g1 * 2);
+
+
+/* #\-MIXIN-\ */
+
+    /* --* */
+
+
+/* #\-PLACEHOLDER-\ */
+
+    /* --* */
+    %reset
+    {
+        body, h1, h2, h3, h4, h5, h6, ul, p, figure, blockquote, pre, form, select, option { margin: 0; }
+        ul, button, input, textarea, option                                                { padding: 0; }
+
+        li { list-style: none; }
+
+        a, img { @extend %no-drag; }
+
+        a { text-decoration: none; }
+
+        button, input, textarea, select { border: none; }
+
+        button, input, textarea { background-color: transparent; }
+
+        button, select { cursor: pointer; }
+
+        input, textarea { outline: none; }
+    }
+
+    %set
+    {
+        &, body, body>div
+        {
+            overscroll-behavior: none;
+    
+            user-select: none;
+        }
+
+        font-size: 36.458%;
+
+        @include media.min($ms4) { font-size: 46.875%; }
+        @include media.min($ms6) { font-size: 62.5%; }
+    }
+
+    %fonts
+    {
+        // @font-face
+        // {
+        //     font-family: 'TITLE';
+        //     src        : local('Sport Solid'),
+        //                  url('/fonts/sport-solid/Sport-Solid.ttf') format('truetype'),
+        //                  url('/fonts/sport-solid/Sport-Solid.otf') format('opentype');
+        //     font-display: swap;
+        // }
+        @font-face
+        {
+            font-family: 'TITLE';
+            src        : local('CodeNext-Trial-Black'),
+                         url('/fonts/CodeNext/CodeNext-Trial-Black.ttf') format('truetype'),
+                         url('/fonts/CodeNext/CodeNext-Trial-Black.otf') format('opentype');
+            font-display: swap;
+        }
+        @font-face
+        {
+            font-family: 'TXT_BOLD';
+            src        : local('Gilroy-Bold'),
+                         url('/fonts/gilroy/Gilroy-Bold.ttf') format('truetype');
+            font-display: swap;
+        }
+        @font-face
+        {
+            font-family: 'TXT';
+            src        : local('Gilroy-Regular'),
+                         url('/fonts/gilroy/Gilroy-Regular.ttf') format('truetype');
+            font-display: swap;
+        }
+    }
+
+
+/* #\-THIS-\ */

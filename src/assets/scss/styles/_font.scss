@@ -1,0 +1,108 @@
+/*----------------------------------------------- #||--font--|| */
+
+
+/* #\-USES-\ */
+
+    /* --SASS */
+    @use 'sass:map';
+    @use 'sass:list';
+
+    /* --GLOBAL */
+    @use '../global/breakpoints' as *;
+
+    /* --APP */
+
+    /* --DEPENDENCIES */
+
+    /* --MEDIA */
+    @use './media';
+
+
+/* #\-EXPORTS-\ */
+
+    /* --THIS */
+
+
+/* #\-VARIABLES-\ */
+
+    /* --* */
+    $fml-title-dft: 'sans-serif', 'arial';
+    $fml-title    : 'TITLE';
+
+    $fml-text-dft : 'Courier New';
+    $fml-text-bold: 'TXT_BOLD', 'TXT';
+    $fml-text     : 'TXT'     , 'TXT_BOLD';
+
+    // 0 - 12 - 18 - 24 - 36 - 48 - 60 - 72 - 88
+    $sizes       : (s0: 0rem, s1: 1.2rem, s2: 1.8rem, s3: 2.4rem, s4: 3.6rem, s5: 4.8rem, s6: 6.2rem, s7: 7.6rem);
+    $sizes-length: list.length($sizes);
+
+    $line-height-min: .76;
+
+
+/* #\-MIXIN-\ */
+
+    /* --* */
+    @mixin h-($n: false, $color: inherit, $line-height: $line-height-min, $italic: false)
+    {
+        @extend %dft-settings;
+
+        @if $italic { font-style : italic; }
+
+        color      : $color;
+        font-family: $fml-title, $fml-title-dft;
+        font-size  : var(--title-size, map.get($sizes, s3));
+        font-weight: lighter;
+        line-height: $line-height;
+
+        @if $n
+        {
+            #{--title-size}: map.get($sizes, 's#{$sizes-length - $n - 2}');
+
+            @include media.min($ms2, $ms3) { #{--title-size}: map.get($sizes, 's#{$sizes-length - $n - 1}'); }
+            @include media.min($ms3, $ms3) { #{--title-size}: map.get($sizes, 's#{$sizes-length - $n - 0}'); }
+        }
+    }
+
+    @mixin txt($color: inherit, $regular: true, $size: 2, $line-height: 1)
+    {
+        @extend %dft-settings;
+    
+        @if $regular
+        {
+            font-family: $fml-text, $fml-text-dft;
+            font-weight: normal;
+        }
+        @else
+        {
+            font-family          : $fml-text-bold, $fml-text-dft;
+            font-weight          : bold;
+            font-synthesis-weight: auto;
+        }
+    
+        color      : $color;
+        font-size  : map.get($sizes, 's#{$size}');
+        line-height: $line-height;
+    }
+
+
+/* #\-PLACEHOLDER-\ */
+
+    /* --* */
+    %dft-settings
+    {
+        font-stretch           : 100%;
+        text-indent            : 0;
+        font-variant           : normal;
+        font-kerning           : normal;
+        font-feature-settings  : normal;
+        font-variation-settings: normal;
+        font-smooth            : antialiased;
+        -webkit-font-smoothing : antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-optical-sizing    : auto;
+        text-rendering         : geometricPrecision;
+    }
+
+
+/* #\-THIS-\ */
