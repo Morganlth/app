@@ -54,7 +54,7 @@ class="app o-h-a s-any b-drk"
 //=======@COMPONENTS|
 
     // --*
-    import Header from './header.svelte'
+    import Header from './Header.svelte'
     import Main   from './main/Main.svelte'
 
 //=======@STYLE|
