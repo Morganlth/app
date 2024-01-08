@@ -24,24 +24,28 @@
         tiers:
         [
             {
-                name : 'S',
-                color: null
+                name : 'GONTRAN LE BRAVE',
+                color: '#d3d3d3'
             },
             {
-                name : 'A',
-                color: null
+                name : 'ET JE ROULE, ROULE, ROULE...',
+                color: '#b1a7a6'
             },
             {
-                name : 'B',
-                color: null
+                name : 'LE SIMPLET',
+                color: '#e5383b'
             },
             {
-                name : 'C',
-                color: null
+                name : 'LES BALOCHES QUI FLOTTENT AU VENT',
+                color: '#ba181b'
             },
             {
-                name : 'D',
-                color: null
+                name : 'RICK L\'ESPRIT DE L\'IVRESSE',
+                color: '#a4161a'
+            },
+            {
+                name : 'VOITURE SANS PERMIS',
+                color: '#a4161a'
             }
         ]
         ,
@@ -101,6 +105,10 @@
             },
             {
                 src: '/images/sam.jpg',
+                alt: 'personne'
+            },
+            {
+                src: '/images/judie.jpg',
                 alt: 'personne'
             }
         ]
